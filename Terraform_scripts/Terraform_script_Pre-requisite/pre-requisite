@@ -1,0 +1,57 @@
+1.Configure your AWS access keys.
+
+	Important: For security, it is strongly recommend that you use IAM users instead of the root account for AWS access.
+
+	Setting your credentials for use by Terraform can be done in a number of ways, but here are the recommended approaches:
+
+	The default credentials file
+
+2.Set credentials in the AWS credentials profile file on your local system, located at:
+
+	~/.aws/credentials on Linux, macOS, or Unix
+
+	C:\Users\USERNAME\.aws\credentials on Windows
+
+3.This file should contain lines in the following format:
+
+	[default]
+	aws_access_key_id = <your_access_key_id>
+	aws_secret_access_key = <your_secret_access_key>
+	Substitute your own AWS credentials values for the values <your_access_key_id> and <your_secret_access_key>.
+
+3.Environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+
+	Set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.
+
+	a.To set these variables on Linux, macOS, or Unix, use export:
+
+		export AWS_ACCESS_KEY_ID=<your_access_key_id>
+		export AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
+	b.To set these variables on Windows, use set:
+
+		set AWS_ACCESS_KEY_ID=<your_access_key_id>
+	set AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
+4.Initialize working directory.
+
+		The first command that should be run after writing a new Terraform configuration is the terraform init command in order to initialize a working directory containing Terraform configuration files	. It is safe to run this command multiple times.
+
+	terraform init
+	Validate the changes.
+
+5.Run command:
+
+	terraform plan
+	Deploy the changes.
+
+6.Run command:
+
+	terraform apply
+	Test the deploy.
+
+7.When the terraform apply command completes, use the AWS console, you should see the new EC2 instance created.
+
+	Clean up the resources created.
+
+8.When you have finished, run command:
+
+	terraform destroy
